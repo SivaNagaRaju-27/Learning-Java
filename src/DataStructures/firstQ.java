@@ -11,10 +11,12 @@ class queue {
 
     void put(int x){
         if(putloc == q.length) {
-            System.out.println(" -- Queue is full...");
+            System.out.println(" -- Queue is full..! Can't put this value into Queue.");
             return;
         }
-
+        if(putloc == q.length-1){
+            System.out.println(" -- Queue is full...");
+        }
         q[putloc++] = x;
     }
 
