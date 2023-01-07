@@ -16,7 +16,6 @@ public class MatrixFunctions {
             }
         }
 
-        System.out.println();
         for(int i=0; i<r; i++) {
         
             for(int j=0; j<c; j++) {
@@ -51,7 +50,6 @@ public class MatrixFunctions {
             }
             System.out.println();
         }
-        System.out.println();
     }
 
     int[][] add(int m1[][], int m2[][]){

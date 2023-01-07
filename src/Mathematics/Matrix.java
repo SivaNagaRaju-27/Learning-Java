@@ -59,11 +59,12 @@ public class Matrix {
             System.out.println("Create Second Matrix...");
             m2 = mr.read('b');
 
-            fn.display(m1);
-            fn.display(m2);
-
             m = fn.add(m1, m2);
-            System.out.println("The Resultant Matrix After Addition is...");
+            System.out.println("The Addition of...");
+            fn.display(m1);
+            System.out.println("And...");
+            fn.display(m2);
+            System.out.println("is:");
             fn.display(m);
         }
         else if(ch == '2'){
