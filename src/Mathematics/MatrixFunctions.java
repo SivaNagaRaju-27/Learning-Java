@@ -2,15 +2,50 @@ package Mathematics;
 
 public class MatrixFunctions {
     void display(int m[][]){
-        int i,j;
+        int r = m.length;
+        int c = m[0].length;
+        int len[] = new int[c];
+
+        String str[][] = new String[r][c];
+        for(int i=0; i<c; i++){
+            for(int j=0; j<r; j++){
+                str[j][i] = Integer.toString(m[j][i]);
+                if(len[i] < str[j][i].length()){
+                    len[i] = str[j][i].length();
+                }
+            }
+        }
+
         System.out.println();
-        for(i=0; i<m.length; i++) {
-            for(j=0; j<m[i].length; j++) {
+        for(int i=0; i<r; i++) {
+        
+            for(int j=0; j<c; j++) {
+
                 if(j==0){
-                    System.out.print("\t|  "+m[i][j]+" ");
-                }else if(j==m[i].length-1){
-                    System.out.print(m[i][j]+"  |");
-                }else{
+                    System.out.print("\t|");
+                    if(str[i][j].length() < len[j]){
+                        for(int l=str[i][j].length(); l<len[j]; l++){
+                            System.out.print(" ");
+                        }
+                    }
+                    System.out.print(m[i][j]+" ");
+                }
+
+                else if(j==m[i].length-1){
+                    if(str[i][j].length() < len[j]){
+                        for(int l=str[i][j].length(); l<len[j]; l++){
+                            System.out.print(" ");
+                        }
+                    }
+                    System.out.print(m[i][j]+"|");
+                }
+
+                else{
+                    if(str[i][j].length() < len[j]){
+                        for(int l=str[i][j].length(); l<len[j]; l++){
+                            System.out.print(" ");
+                        }
+                    }
                     System.out.print(m[i][j]+" ");
                 }
             }
