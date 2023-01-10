@@ -1,6 +1,5 @@
 package DataStructures;
 
-
 class Queue {
     char q[]; //Array to Hold the Queue
     int putloc, getloc; //Indices for the Next Put and Get Elements
