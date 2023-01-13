@@ -1,17 +1,19 @@
 package DataStructures;
-import java.util.Scanner;
-class queue {
+
+import java.util.*;
+
+class Queue {
     private int q[];
     private int getloc, putloc;
 
-    queue(int size) {
+    Queue(int size) {
         q = new int[size];
         getloc = putloc = 0;
     }
 
     void put(int x){
         if(putloc == q.length) {
-            System.out.println(" -- Queue is full..! Can't put this value into Queue.");
+            System.out.println(" -- Queue is full...! Can't put this value into Queue.");
             return;
         }
         if(putloc == q.length-1){
@@ -34,13 +36,13 @@ class queue {
     }
 }
 
-public class firstQ {
+public class QueueDemo1 {
     public static void main(String args[]){
         try(Scanner sc = new Scanner(System.in)){
             int n,op;
             System.out.print("Enter Size of the Queue: ");
             n = sc.nextInt();
-            queue q = new queue(n);
+            Queue q = new Queue(n);
 
             System.out.println("\t\t****MENU*****");
             System.out.println("\t[1].Put into Queue.");
