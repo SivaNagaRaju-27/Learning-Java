@@ -42,6 +42,7 @@ public class Matrix {
         System.out.println("\t[1].Matrix Addition.");
         System.out.println("\t[2].Matrix Multiplication");
         System.out.println("\t[3].Det of Matrix.");
+        System.out.println("\t[4].Read And Display Matrix: ");
         System.out.println("\t[q].Exit.");
         System.out.print("Choose Your Option: ");
 
@@ -60,11 +61,7 @@ public class Matrix {
             m2 = mr.read('b');
 
             m = fn.add(m1, m2);
-            System.out.println("The Addition of...");
-            fn.display(m1);
-            System.out.println("And...");
-            fn.display(m2);
-            System.out.println("is:");
+            System.out.println("The Result of Matrix Additions is...");
             fn.display(m);
         }
         else if(ch == '2'){
@@ -75,11 +72,8 @@ public class Matrix {
             System.out.println("Create Second Matrix...");
             m2 = mr.read('c');
 
-            fn.display(m1);
-            fn.display(m2);
-
             m = fn.multiply(m1, m2);
-            System.out.println("The Resultant Matrix After Multiplication is...");
+            System.out.println("The Result of Matrix Multiplications is...");
             fn.display(m);
         }
         else if(ch == '3'){
@@ -90,6 +84,12 @@ public class Matrix {
             System.out.println("The Det of The Matrix...");
             fn.display(m);
             System.out.println("is: "+det);
+        }
+        else if(ch == '4'){
+            int m[][];
+            System.out.println("Build Your Matrix...");
+            m = mr.read('a');
+            fn.display(m);
         }
     }
 }
