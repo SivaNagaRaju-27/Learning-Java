@@ -19,7 +19,7 @@ public class Array {
 
     public void start(String str){
         switch(str){
-            case "BubbleSort" : var bubble = new Sort.bubbleSort();
+            case "BubbleSort" : var bubble = new sort.bubbleSort();
                     bubble.sort(list,list.length);
                     System.out.println("After Sorting...");
                     array.show(list,list.length);

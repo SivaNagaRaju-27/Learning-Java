@@ -1,4 +1,4 @@
-package Sort;
+package sort;
 public class bubbleSort {
     public void sort(int ar[], int n){
         int temp;
