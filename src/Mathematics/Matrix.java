@@ -31,7 +31,7 @@ class ReadMatrix {
     }
 }
 
-public class Matrix {
+public class Matrix extends ReadMatrix{
     public static void main(String args[])throws java.io.IOException{
         char ch,ign;
         var mr = new ReadMatrix();
