@@ -1,65 +1,62 @@
 package Mathematics;
+import IOstructure.IOMatrix;
+public class Matrix extends IOMatrix{
+    int[][] mat;
+    double[][] dmat;
+    char[][] cmat;
+    String[][] smat;
+    int r,c,ord,opt;
 
-import IOstructure.readMatrix;
-public class Matrix {
-    public static void main(String args[])throws java.io.IOException{
-        char ch,ign;
-        var mr = new readMatrix();
-        var fn = new MatrixFunctions();
-        var md = new MatrixDet();
+    void buildMatrix()throws Exception{
+        var menu = new matrixMenu();
 
-        System.out.println("\t\t*****MENU*****\n");
-        System.out.println("\t[1].Matrix Addition.");
-        System.out.println("\t[2].Matrix Multiplication");
-        System.out.println("\t[3].Det of Matrix.");
-        System.out.println("\t[4].Read And Display Matrix: ");
-        System.out.println("\t[q].Exit.");
-        System.out.print("Choose Your Option: ");
-
-        ch = (char)System.in.read();
-        do {
-            ign = (char)System.in.read();
-        }while(ign != '\n');
-
-        if(ch == '1'){
-            int m1[][],m2[][],m[][];
-
-            System.out.println("Create First Matrix...");
-            m1 = mr.read('a');
-
-            System.out.println("Create Second Matrix...");
-            m2 = mr.read('b');
-
-            m = fn.add(m1, m2);
-            System.out.println("The Result of Matrix Additions is...");
-            fn.display(m);
-        }
-        else if(ch == '2'){
-            int m1[][],m2[][],m[][];
-
-            System.out.println("Create First Matrix...");
-            m1 = mr.read('a');
-            System.out.println("Create Second Matrix...");
-            m2 = mr.read('c');
-
-            m = fn.multiply(m1, m2);
-            System.out.println("The Result of Matrix Multiplications is...");
-            fn.display(m);
-        }
-        else if(ch == '3'){
-            int m[][],det;
-            System.out.println("Create The Matrix...");
-            m = mr.read('d');
-            det = md.Det(m);
-            System.out.println("The Det of The Matrix...");
-            fn.display(m);
-            System.out.println("is: "+det);
-        }
-        else if(ch == '4'){
-            int m[][];
-            System.out.println("Build Your Matrix...");
-            m = mr.read('a');
-            fn.display(m);
+        opt = menu.readMenu();
+    
+        switch(opt) {
+            case 1: 
+                    int flag = -1;
+                    String str = menu.typeMenu();
+                    int limit = menu.input();
+                    while(flag == -1){
+                        switch(str){
+                            case "int": mat = read(r,c,limit);
+                                        flag = 1;
+                            break;
+                            case "double": dmat = read(r,c,(double)limit);
+                                        flag = 1;
+                            break;
+                            default: 
+                                    if(str == "char" | str == "string" | str == "boolean"){
+                                        System.out.println("Cannot Generate Random Values of Type "+str);
+                                    }else{
+                                        System.out.println("Invalid Data Type-("+str+")! Retry....");
+                                    }
+                        }
+                    }
+            break;
+            case 2: 
+                    String str1;
+                    int flag1 = -1;
+                    str1 = menu.typeMenu();
+                    while(flag1 == -1){
+                        switch(str1){
+                            case "int": mat = read(r,c);
+                                        flag = 1;
+                            break;
+                            case "double": dmat = read(0.0,r,c);
+                                        flag = 1;
+                            break;
+                            case "char" : cmat = read('0',r,c);
+                                        flag = 1;
+                            break;
+                            case "String": smat = read("",r,c);
+                                        flag = 1;
+                            break;
+                            default: System.out.println("Invalid Data Type-("+str1+")! Retry....");
+                        }
+                    }
+            break;
+            default: System.out.println("Invalid Option "+opt+"! Terminating...");
         }
     }
 }
