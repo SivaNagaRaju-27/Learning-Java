@@ -1,5 +1,6 @@
 package Basics;
 import java.util.*;
+import java.io.*;
 public class initMatrix {
     int r,c;
     int mat[][];
@@ -34,30 +35,46 @@ public class initMatrix {
         return dmat;
     }
 
-    public int[][] read(){
+    public int[][] read()throws Exception{
         int i,j;
-        var sc = new Scanner(System.in);
+        var rd = new InputStreamReader(System.in);
+        var br = new BufferedReader(rd);
         mat = new int[r][c];
         for(i=0; i<r; i++){
             for(j=0; j<c; j++){
                 System.out.print("Enter Element["+(i+1)+"]["+(j+1)+"]: ");
-                mat[i][j] = sc.nextInt();
+                mat[i][j] = Integer.parseInt(br.readLine());
             }
         }
         return mat;
     }
 
-    public double[][] read(double x){
+    public double[][] read(double x)throws IOException{
         int i,j;
-        var sc = new Scanner(System.in);
+        var rd = new InputStreamReader(System.in);
+        var br = new BufferedReader(rd);
         dmat = new double[r][c];
         for(i=0; i<r; i++){
             for(j=0; j<c; j++){
                 System.out.print("Enter Element["+(i+1)+"]["+(j+1)+"]: ");
-                dmat[i][j] = sc.nextDouble();
+                dmat[i][j] = Double.parseDouble(br.readLine());
             }
         }
         return dmat;
+    }
+
+    public String[][] read(String str, int r, int c)throws Exception{
+        int i,j;
+        var rd = new InputStreamReader(System.in);
+        var br = new BufferedReader(rd);
+        mat = new int[r][c];
+        for(i=0; i<r; i++){
+            for(j=0; j<c; j++){
+                System.out.print("Enter Element["+(i+1)+"]["+(j+1)+"]: ");
+                smat[i][j] = br.readLine();
+            }
+        }
+        return smat;
     }
 
 }
